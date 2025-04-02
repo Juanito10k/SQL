@@ -34,5 +34,5 @@ SELECT *FROM superstore ORDER BY price desc;
 SELECT MAX (price) FROM superstore;
 
 #Display a statistic for the prices of items in the "Kitchen Supplies" category.
-SELECT avg(price) FROM superstore WHERE category= 'Kitchen Supplies'
+SELECT avg(price) FROM superstore WHERE category= ''Kitchen Supplies''
     
