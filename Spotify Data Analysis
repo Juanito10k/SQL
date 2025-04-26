@@ -1,0 +1,37 @@
+#For this project, I sourced Spotify data from Kaggle, created a database table to store the data, and then conducted data analysis using SQL.
+
+Here’s the table: 
+CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,I
+song_key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+song_mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness decimal(8,7) NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL )
+"CREATE TABLE" HELP
+
+#I then imported the Spotify CSV data into the table and began exploring it using the SQL queries below.
+
+#1 Select the top 10 most popular songs from Spotify
+SELECT Artist name, track_name, popularity
+FROM BIT_DB.Spotifydata
+ORDER BY popularity DESC
+LIMIT 10;
+
+#2 The average song duration (in minutes) for each time signature in the Spotify data
+SELECT time_signature, 
+ROUND(AVG(duration_ms) / 60000.0, 2) AS avg_duration_minutes 
+FROM BIT_DB.Spotifydata GROUP BY time_signature 
+ORDER BY time_signature;
